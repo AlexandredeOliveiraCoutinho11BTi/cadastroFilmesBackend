@@ -1,0 +1,30 @@
+GET http://localhost:3000/all-movies
+
+###
+
+POST http://localhost:3000/add-movie
+Content-Type: application/json
+
+{
+  "title": "Avatar",
+  "genre": "Ficção Científica",
+  "duration": 162,
+  "classificacao_etaria": "12"
+}
+
+###
+
+DELETE http://localhost:3000/delete-movie/12
+
+###
+
+PUT http://localhost:3000/update-movie
+Content-Type: application/json
+
+{
+  "id": 13,
+  "title": "A Bruxa",
+  "genre": "Terror",
+  "duration": 92,
+  "classificacao_etaria": 16
+}
