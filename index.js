@@ -1,9 +1,12 @@
 import express from "express";
 import mysql2 from "mysql2";
+import cors from "cors";
+
 
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 const sql = mysql2.createPool({
     host: "benserverplex.ddns.net",
@@ -64,7 +67,7 @@ app.put("/update-movie", (req, res) => {
             message: "Filme alterado com sucesso!"
         })
     })
-})
+})                                                                         
 
 app.listen(3000, () => {
     console.log("Servidor JOJO está de fato rodando na porta 3000");
