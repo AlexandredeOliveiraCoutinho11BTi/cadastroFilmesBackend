@@ -8,6 +8,12 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
+app.get("/", (req, res) => {
+    res.send("Servidor funcionando!");
+});
+
+
+
 const sql = mysql2.createPool({
     host: "benserverplex.ddns.net",
     user: "alunos",
@@ -68,7 +74,3 @@ app.put("/update-movie", (req, res) => {
         })
     })
 })                                                                         
-
-app.listen(3000, () => {
-    console.log("Servidor JOJO está de fato rodando na porta 3000");
-});
