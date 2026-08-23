@@ -1,20 +1,27 @@
+const API = "https://cadastro-filmes-backend-o5nh.vercel.app"
+
 async function buscarFilmes() {
-    // acessar a rota GET do backend, trazer os filmes e mostrar os filmes na tela
-    const resposta = await fetch("https://cadastro-filmes-backend-o5nh.vercel.app/") // resposta do backend
-    const filmes = await resposta.json() // converte a resposta num objeto JS
+    
     const sectionFilmes = document.querySelector(".filmes")
 
-    filmes.forEach((filme) => {
-        console.log(filme)
-        sectionFilmes.innerHTML += `
+    try {
+        const resposta = await fetch(`${API}/all-movies`) 
+        const filmes = await resposta.json()    
+
+        filmes.forEach((filme) => {
+            sectionFilmes.innerHTML += `
                     <div>
                         <h2>${filme.title}</h2>
                         <p><strong>Gênero:</strong> ${filme.genre}</p>
                         <p><strong>Duração:</strong> ${filme.duration} minutos</p>
-                        <p><strong>Classificação indicativa:</strong> ${filme.ageLimit > 0 ? filme.ageLimit + ' anos' : 'Livre'}</p>
+                        <p><strong>Classificação indicativa:</strong> ${filme.classificacao_etaria === "L" ? "Livre" : filme.classificacao_etaria + " anos"}</p>
                     </div>
                 `
-    })
+        })
+    } catch (erro) {
+        console.error(erro)
+        sectionFilmes.innerHTML = "<p>Erro ao carregar os filmes.</p>"
+    }
 }
 
 buscarFilmes()
