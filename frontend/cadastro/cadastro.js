@@ -13,10 +13,10 @@ async function cadastrarFilme() {
         title: title.value,
         genre: genre.value,
         classificacao_etaria: classificacao_etaria.valueAsNumber,
-        duration: duration
+        duration: duration.valueAsNumber
     }
 
-    const resposta = await fetch("http://localhost:3000", {
+    const resposta = await fetch("http://localhost:3000/add-movie", {
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -30,3 +30,5 @@ async function cadastrarFilme() {
 
     window.location.href = "../index.html"
 }
+
+cadastrarFilme()

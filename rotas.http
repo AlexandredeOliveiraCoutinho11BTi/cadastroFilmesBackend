@@ -6,10 +6,10 @@ POST http://localhost:3000/add-movie
 Content-Type: application/json
 
 {
-  "title": "Avatar",
-  "genre": "Ficção Científica",
-  "duration": 162,
-  "classificacao_etaria": "12"
+  "title": "LUcas>",
+  "genre": "Nunes",
+  "duration": 666,
+  "classificacao_etaria": "18"
 }
 
 ###
