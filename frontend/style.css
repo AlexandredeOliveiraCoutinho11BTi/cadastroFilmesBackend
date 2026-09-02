@@ -19,3 +19,8 @@
     height: 200px;
     padding: 10px;
     }
+
+    a {
+        justify-content: center;
+        align-items: center;
+    }

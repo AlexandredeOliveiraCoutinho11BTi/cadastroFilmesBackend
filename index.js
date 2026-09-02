@@ -142,4 +142,8 @@ app.put("/update-movie", (req, res) => {
     );
 });
 
+app.listen(3000, () => {
+    console.log("Servidor funcionando em http://localhost:3000");
+});
+
 export default app;
