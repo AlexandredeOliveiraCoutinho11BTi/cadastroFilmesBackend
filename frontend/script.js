@@ -16,6 +16,9 @@ async function buscarFilmes() {
                         <p><strong>Duração:</strong> ${filme.duration} minutos</p>
                         <p><strong>Classificação indicativa:</strong> ${filme.classificacao_etaria === "L" ? "Livre" : filme.classificacao_etaria + " anos"}</p>
                     </div>
+
+                    <button onclick="apagarFilme(${filme.id})">Apagar</button>
+                    
                 `
         })
     } catch (erro) {
@@ -25,3 +28,12 @@ async function buscarFilmes() {
 }
 
 buscarFilmes()
+
+async function apagarFilme() {
+    const respostaDeSucessoAoApagar = await fetch (`https://cadastro-filmes-backend-o5nh.vercel.app/delete-movie/${id}`,  {method: "DELETE"} )
+    const mensagem = await respostaDeSucessoAoApagar.json()
+
+    alert(mensagem.message)
+
+    window.location.reload()
+}
