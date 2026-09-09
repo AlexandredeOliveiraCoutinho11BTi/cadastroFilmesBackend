@@ -29,7 +29,7 @@ async function buscarFilmes() {
 
 buscarFilmes()
 
-async function apagarFilme() {
+async function apagarFilme(id) {
     const respostaDeSucessoAoApagar = await fetch (`https://cadastro-filmes-backend-o5nh.vercel.app/delete-movie/${id}`,  {method: "DELETE"} )
     const mensagem = await respostaDeSucessoAoApagar.json()
 
